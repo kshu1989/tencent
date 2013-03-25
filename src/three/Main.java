@@ -63,10 +63,23 @@ public class Main {
 
 			ArrayList al = new ArrayList();
 			get(al, datas1, t, n, A, B, 1);
+			int p = al.size();
+			get(al, datas2, t, n, A, B, 1);
 
-			for (int a : (ArrayList<Integer>) al) {
-				System.out.println(a);
+			int min = Integer.MAX_VALUE;
+
+			for (int i = 0; i < al.size(); i++) {
+				int a = 0;
+				if (i < p) {
+					a = (int) al.get(i) * D2;
+				} else {
+					a = (int) al.get(i) * D1;
+				}
+				if (a < min) {
+					min = a;
+				}
 			}
+			System.out.println(min);
 		}
 	}
 
@@ -87,34 +100,8 @@ public class Main {
 				}
 			}
 		}
-
 		for (String list : (ArrayList<String>) l) {
 			get(re, data, t, n, a, list, level + 1);
 		}
 	}
-	// int re = 0;
-	// boolean flag1 = false;
-	// boolean flag2 = false;
-	// for (int j = n - 1; j >= 0; j--) {
-	// for (int i = 0; i < t; i++) {
-	// if (datas1[i][j] != null && datas1[i][j].equals(B)) {
-	// flag1 = true;
-	// re = 0;
-	// k = j - 1;
-	// break;
-	// }
-	// }
-	// if (flag1 && k >= 0) {
-	// for (int i = 0; i < t; i++) {
-	// if (datas1[i][k] != null && datas1[i][k].equals(A)) {
-	// System.out.println(re * D2);
-	// break;
-	// }
-	// re++;
-	// }
-	// }
-	// }
-	//
-	// }
-	// }
 }
